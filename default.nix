@@ -11,5 +11,5 @@
 {
   hmModules = import ./hm-modules;
 
-  lorri = pkgs.callPackage ./pkgs/lorri.nix { };
+  lorri = import ./pkgs/lorri.nix { };
 }

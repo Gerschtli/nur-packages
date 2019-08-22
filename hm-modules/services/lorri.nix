@@ -5,7 +5,7 @@ with lib;
 let
   cfg = config.services.lorri;
 
-  lorri = pkgs.callPackage ../../pkgs/lorri.nix { };
+  lorri = import ../../pkgs/lorri.nix { };
 in
 
 {
