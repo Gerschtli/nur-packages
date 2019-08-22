@@ -40,10 +40,10 @@ let
 
   nurPkgs =
     flattenPkgs
-    (listToAttrs
-    (map (n: nameValuePair n nurAttrs.${n})
-    (filter (n: !isReserved n)
-    (attrNames nurAttrs))));
+      (listToAttrs
+        (map (n: nameValuePair n nurAttrs.${n})
+          (filter (n: !isReserved n)
+            (attrNames nurAttrs))));
 
 in
 
