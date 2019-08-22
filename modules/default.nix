@@ -1,6 +1,5 @@
 {
-  # Add your NixOS modules here
-  #
-  # my-module = ./my-module;
+  services = {
+    lorri = ./services/lorri.nix;
+  };
 }
-
