@@ -9,7 +9,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 {
-  modules = import ./modules;
+  hmModules = import ./hm-modules;
 
   lorri = pkgs.callPackage ./pkgs/lorri.nix { };
 }

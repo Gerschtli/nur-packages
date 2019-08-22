@@ -4,6 +4,8 @@ with lib;
 
 let
   cfg = config.services.lorri;
+
+  lorri = pkgs.callPackage ../../pkgs/lorri.nix { };
 in
 
 {
@@ -15,7 +17,7 @@ in
 
       package = mkOption {
         type = types.package;
-        default = pkgs.nur.repos.gerschtli.lorri;
+        default = lorri;
         defaultText = "pkgs.nur.repos.gerschtli.lorri";
         description = ''
           Lorri package to install.
