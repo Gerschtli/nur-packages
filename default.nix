@@ -12,4 +12,5 @@
   hmModules = import ./hm-modules;
 
   lorri = import ./pkgs/lorri.nix { };
+  nerdfonts-ubuntu-mono = import ./pkgs/nerdfonts-ubuntu-mono.nix { };
 }
