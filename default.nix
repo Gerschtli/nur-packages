@@ -12,5 +12,12 @@
   hmModules = import ./hm-modules;
 
   lorri = pkgs.callPackage ./pkgs/lorri.nix { };
+
+  maven35 = pkgs.callPackage ./pkgs/maven35.nix { };
+
   nerdfonts-ubuntu-mono = pkgs.callPackage ./pkgs/nerdfonts-ubuntu-mono.nix { };
+
+  php55 = pkgs.callPackage ./pkgs/php55.nix { };
+
+  teamspeak-update-notifier = pkgs.callPackage ./pkgs/teamspeak-update-notifier.nix { };
 }
