@@ -1,6 +1,6 @@
 { fetchurl, maven }:
 
-maven.overrideDerivation (old: rec {
+maven.overrideAttrs (old: rec {
   name = "apache-maven-${version}";
   version = "3.5.4";
 
