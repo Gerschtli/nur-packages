@@ -9,11 +9,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 {
-  hmModules = import ./hm-modules;
-
   dwm-status = pkgs.callPackage ./pkgs/dwm-status.nix { };
-
-  lorri = pkgs.callPackage ./pkgs/lorri.nix { };
 
   maven35 = pkgs.callPackage ./pkgs/maven35.nix { };
 
