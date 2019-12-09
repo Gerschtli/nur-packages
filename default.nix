@@ -9,7 +9,9 @@
 { pkgs ? import <nixpkgs> {} }:
 
 {
-  dwm-status = pkgs.callPackage ./pkgs/dwm-status.nix { };
+  dwm-status = pkgs.callPackage ./pkgs/dwm-status.nix { useGlobalAlsaUtils = false; };
+
+  dwm-status-without-alsa-utils = pkgs.callPackage ./pkgs/dwm-status.nix { useGlobalAlsaUtils = true; };
 
   maven35 = pkgs.callPackage ./pkgs/maven35.nix { };
 
