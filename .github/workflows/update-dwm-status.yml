@@ -1,0 +1,41 @@
+name: Update dwm-status revision
+on:
+  repository_dispatch:
+    types: [update-dwm-status]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v6
+
+      - name: Update revision and sha256
+        run: |
+          rev=${{ github.event.client_payload.commit_id }}
+          echo "rev: ${rev}"
+
+          sha256=$(nix-prefetch-url --unpack "https://github.com/Gerschtli/dwm-status/archive/${rev}.tar.gz" 2> /dev/null)
+          echo "sha256: ${sha256}"
+
+          cat > ./pkgs/dwm-status/config.json <<EOF
+          {
+            "rev": "${rev}",
+            "sha256": "${sha256}"
+          }
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "Update Bot"
+          git config --local user.email "nope@nope.local"
+          git commit --all --message "Update dwm-status"
+
+      - name: Push to github
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
