@@ -36,8 +36,3 @@ jobs:
           file: ci.nix
           attributes: buildOutputs
           signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
-
-      - name: Update revision in NUR registry
-        if: github.event_name != 'pull_request' && github.ref == 'refs/head/master'
-        run: |
-          curl -XPOST "https://nur-update.herokuapp.com/update?repo=gerschtli"
