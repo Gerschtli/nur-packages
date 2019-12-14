@@ -1,0 +1,35 @@
+name: Build packages and push to binary cache
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        nix-channel:
+          - nixpkgs-unstable
+          - nixos-unstable
+          - nixos-19.09-small
+          - nixos-19.09
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v6
+
+      - name: Set nix-channel
+        run: |
+          nix-channel --add https://nixos.org/channels/${{ matrix.nix-channel }} nixpkgs
+          nix-channel --update
+
+      - name: Build packages and push to cachix
+        uses: cachix/cachix-action@v2
+        with:
+          name: gerschtli
+          file: ci.nix
+          attributes: buildOutputs
+          signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
