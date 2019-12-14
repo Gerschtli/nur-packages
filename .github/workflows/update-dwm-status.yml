@@ -22,10 +22,14 @@ jobs:
           sha256=$(nix-prefetch-url --unpack "https://github.com/Gerschtli/dwm-status/archive/${rev}.tar.gz" 2> /dev/null)
           echo "sha256: ${sha256}"
 
+          cargoSha256=$(curl -s "https://raw.githubusercontent.com/Gerschtli/dwm-status/master/default.nix" | sed -n -e 's#^\s*cargoSha256 = "\(.*\)";$#\1#p')
+          echo "cargoSha256: ${cargoSha256}"
+
           cat > ./pkgs/dwm-status/config.json <<EOF
           {
             "rev": "${rev}",
-            "sha256": "${sha256}"
+            "sha256": "${sha256}",
+            "cargoSha256": "${cargoSha256}"
           }
           EOF
 
