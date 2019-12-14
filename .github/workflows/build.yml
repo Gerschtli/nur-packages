@@ -1,5 +1,6 @@
 name: Build packages and push to binary cache
 on:
+  pull_request:
   push:
 
 jobs:
@@ -33,3 +34,8 @@ jobs:
           file: ci.nix
           attributes: buildOutputs
           signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
+
+      - name: Update revision in NUR registry
+        if: github.event_name == 'push' && github.ref == 'refs/head/master'
+        run: |
+          curl -XPOST "https://nur-update.herokuapp.com/update?repo=gerschtli"
