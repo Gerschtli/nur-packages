@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Install nix
         uses: cachix/install-nix-action@v6
@@ -29,13 +29,15 @@ jobs:
           }
           EOF
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --local user.name "Update Bot"
-          git config --local user.email "nope@nope.local"
+          git config --local user.email "update@bot"
           git commit --all --message "Update dwm-status"
+          git push origin master
 
-      - name: Push to github
-        uses: ad-m/github-push-action@v0.5.0
+      - name: Trigger build workflow
+        uses: peter-evans/repository-dispatch@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          event-type: rebuild

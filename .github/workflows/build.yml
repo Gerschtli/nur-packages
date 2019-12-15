@@ -2,6 +2,8 @@ name: Build packages and push to binary cache
 on:
   pull_request:
   push:
+  repository_dispatch:
+    types: [rebuild]
   schedule:
     - cron: 0 */6 * * *
 
@@ -19,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Install nix
         uses: cachix/install-nix-action@v6
