@@ -12,7 +12,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install nix
-        uses: cachix/install-nix-action@v6
+        uses: Gerschtli/install-nix-action@nix-path
+        with:
+          NIX_PATH: nixpkgs=channel:nixpkgs-unstable
 
       - name: Update revision and sha256
         run: |
