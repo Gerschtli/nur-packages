@@ -30,9 +30,10 @@ jobs:
           NIX_PATH: nixpkgs=channel:${{ matrix.nix-channel }}
 
       - name: Build packages and push to cachix
-        uses: cachix/cachix-action@v2
+        uses: cachix/cachix-action@v3
         with:
           name: gerschtli
           file: ci.nix
           attributes: buildOutputs
           signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
+          nixBuildArgs: --keep-going --show-trace
