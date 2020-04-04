@@ -15,8 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         nix-channel:
-          - nixpkgs-unstable
-          - nixos-unstable
+          # - nixpkgs-unstable
+          # - nixos-unstable
           - nixos-19.09-small
           - nixos-19.09
 
