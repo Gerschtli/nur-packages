@@ -15,10 +15,10 @@ jobs:
       fail-fast: false
       matrix:
         nix-channel:
-          # - nixpkgs-unstable
-          # - nixos-unstable
-          - nixos-19.09-small
-          - nixos-19.09
+          - nixpkgs-unstable
+          - nixos-unstable
+          - nixos-20.03-small
+          - nixos-20.03
 
     steps:
       - name: Checkout repository
