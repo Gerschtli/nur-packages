@@ -19,6 +19,8 @@
 
   php55 = pkgs.callPackage ./pkgs/php55.nix { };
 
+  php72-symlink = pkgs.callPackage ./pkgs/php72-symlink.nix { };
+
   teamspeak-update-notifier = pkgs.callPackage ./pkgs/teamspeak-update-notifier.nix { };
 
   tmux28 = pkgs.callPackage ./pkgs/tmux28.nix { };
