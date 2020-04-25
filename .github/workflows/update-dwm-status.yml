@@ -17,26 +17,22 @@ jobs:
           NIX_PATH: nixpkgs=channel:nixpkgs-unstable
 
       - name: Update revision and sha256
-        run: |
-          rev=${{ github.event.client_payload.commit_id }}
-          echo "rev: ${rev}"
-
-          sha256=$(nix-prefetch-url --unpack "https://github.com/Gerschtli/dwm-status/archive/${rev}.tar.gz" 2> /dev/null)
-          echo "sha256: ${sha256}"
-
-          cat > ./pkgs/dwm-status/config.json <<EOF
-          {
-            "rev": "${rev}",
-            "sha256": "${sha256}"
-          }
-          EOF
+        uses: Gerschtli/generate-nix-hash@v1
+        with:
+          rev: ${{ github.event.client_payload.commit_id }}
+          owner: Gerschtli
+          repo: dwm-status
+          file: pkgs/dwm-status/config.json
 
       - name: Commit and push changes
-        run: |
-          git config --local user.name "Update Bot"
-          git config --local user.email "update@bot"
-          git commit --all --message "Update dwm-status"
-          git push origin master
+        uses: github-actions-x/commit@v2.5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: master
+          commit-message: Update dwm-status
+          files: pkgs/dwm-status/config.json
+          name: Update Bot
+          email: update@bot
 
       - name: Trigger build workflow
         uses: peter-evans/repository-dispatch@v1
