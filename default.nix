@@ -24,7 +24,9 @@
 
   nerdfonts-ubuntu-mono = pkgs.callPackage ./pkgs/nerdfonts-ubuntu-mono.nix { };
 
-  pass = pkgs.callPackage ./pkgs/pass.nix { };
+  pass = pkgs.callPackage ./pkgs/pass.nix { x11Support = false; };
+
+  pass-x11 = pkgs.callPackage ./pkgs/pass.nix { x11Support = true; };
 
   php55 = pkgs.callPackage ./pkgs/php55.nix { };
 
