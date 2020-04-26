@@ -9,6 +9,9 @@
 { pkgs ? import <nixpkgs> {} }:
 
 {
+  # to push weechat to cachix for nixos-small channels
+  inherit (pkgs) weechat;
+
   dmenu = pkgs.callPackage ./pkgs/dmenu { };
 
   dwm = pkgs.callPackage ./pkgs/dwm { };
