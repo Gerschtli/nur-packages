@@ -3,7 +3,7 @@
 let
   config = builtins.fromJSON (builtins.readFile ./config.json);
 
-  dwm-status = fetchFromGitHub {
+  src = fetchFromGitHub {
     inherit (config) rev sha256;
 
     owner = "Gerschtli";
@@ -11,4 +11,4 @@ let
   };
 in
 
-import dwm-status { inherit pkgs useGlobalAlsaUtils; }
+import src { inherit pkgs useGlobalAlsaUtils; }
