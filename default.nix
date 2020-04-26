@@ -11,6 +11,8 @@
 {
   dmenu = pkgs.callPackage ./pkgs/dmenu { };
 
+  dwm = pkgs.callPackage ./pkgs/dwm { };
+
   dwm-status = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = false; };
 
   dwm-status-without-alsa-utils = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = true; };
