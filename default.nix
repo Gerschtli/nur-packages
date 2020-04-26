@@ -9,6 +9,8 @@
 { pkgs ? import <nixpkgs> {} }:
 
 {
+  dmenu = pkgs.callPackage ./pkgs/dmenu { };
+
   dwm-status = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = false; };
 
   dwm-status-without-alsa-utils = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = true; };
