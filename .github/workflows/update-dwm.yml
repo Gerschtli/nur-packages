@@ -23,7 +23,7 @@ jobs:
           file: pkgs/dwm/config.json
 
       - name: Commit and push changes
-        uses: github-actions-x/commit@v2
+        uses: github-actions-x/commit@v2.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: master
