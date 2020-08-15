@@ -25,4 +25,4 @@ let
     };
 in
 
-php72 // { inherit packages; }
+php72 // { inherit (packages) extensions packages; }
