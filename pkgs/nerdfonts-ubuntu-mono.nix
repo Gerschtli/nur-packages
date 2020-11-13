@@ -1,8 +1,5 @@
 { nerdfonts }:
 
-nerdfonts.override (
-  # in unstable channels use fonts arg
-  if nerdfonts.override.__functionArgs ? "fonts"
-  then { fonts = [ "UbuntuMono" ]; }
-  else { withFont = "UbuntuMono"; }
-)
+nerdfonts.override {
+  fonts = [ "UbuntuMono" ];
+}
