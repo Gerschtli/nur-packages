@@ -2,13 +2,13 @@
 
 python37.pkgs.buildPythonPackage rec {
   pname = "teamspeak-update-notifier";
-  version = "1.5.1";
+  version = "1.5.2";
 
   src = fetchFromGitHub {
     owner = "Gerschtli";
     repo = "teamspeak-update-notifier";
     rev = version;
-    sha256 = "16n9lyx0m9gqbi6qh61bcayflq6cyh7z5g259dqvq9caxc2piypv";
+    sha256 = "1vsc9chnk9szzba2j2gixnbn43wky1kdzx1jf18gs91n989m71ry";
   };
 
   propagatedBuildInputs = with python37Packages; [
