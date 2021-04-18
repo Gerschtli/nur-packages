@@ -17,6 +17,10 @@
 
   dwm-status-without-alsa-utils = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = true; };
 
+  jdk14 = pkgs.callPackage ./pkgs/jdk14.nix { };
+
+  jdk15 = pkgs.callPackage ./pkgs/jdk15.nix { };
+
   maven35 = pkgs.callPackage ./pkgs/maven35.nix { };
 
   nerdfonts-ubuntu-mono = pkgs.callPackage ./pkgs/nerdfonts-ubuntu-mono.nix { };
