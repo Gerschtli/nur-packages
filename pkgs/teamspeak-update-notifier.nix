@@ -1,22 +1,22 @@
-{ fetchFromGitHub, python37, python37Packages }:
+{ fetchFromGitHub, python39, python39Packages }:
 
-python37.pkgs.buildPythonPackage rec {
+python39.pkgs.buildPythonPackage rec {
   pname = "teamspeak-update-notifier";
-  version = "1.5.2";
+  version = "1.6.0";
 
   src = fetchFromGitHub {
     owner = "Gerschtli";
     repo = "teamspeak-update-notifier";
     rev = version;
-    sha256 = "1vsc9chnk9szzba2j2gixnbn43wky1kdzx1jf18gs91n989m71ry";
+    sha256 = "sha256-l0XfdYd8hN95WLVKRSIy8Ltw6gDurD1jNQvZvw4zdZ0=";
   };
 
-  propagatedBuildInputs = with python37Packages; [
+  propagatedBuildInputs = with python39Packages; [
     beautifulsoup4
     requests
   ];
 
-  checkInputs = with python37Packages; [
+  checkInputs = with python39Packages; [
     pytest
     pytestrunner
   ];
