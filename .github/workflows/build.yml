@@ -17,8 +17,6 @@ jobs:
         nix-channel:
           - nixpkgs-unstable
           - nixos-unstable
-          - nixos-20.09-small
-          - nixos-20.09
           - nixos-21.05-small
           - nixos-21.05
 
