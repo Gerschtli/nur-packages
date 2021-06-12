@@ -1,4 +1,4 @@
-{ pkgs, fetchFromGitHub, useGlobalAlsaUtils }:
+{ pkgs, fetchFromGitHub }:
 
 let
   config = builtins.fromJSON (builtins.readFile ./config.json);
@@ -11,4 +11,4 @@ let
   };
 in
 
-import src { inherit pkgs useGlobalAlsaUtils; }
+import src { inherit pkgs; }

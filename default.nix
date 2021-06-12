@@ -13,23 +13,11 @@
 
   dwm = pkgs.callPackage ./pkgs/dwm { };
 
-  dwm-status = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = false; };
-
-  dwm-status-without-alsa-utils = pkgs.callPackage ./pkgs/dwm-status { useGlobalAlsaUtils = true; };
-
-  jdk14 = pkgs.callPackage ./pkgs/jdk14.nix { };
-
-  jdk15 = pkgs.callPackage ./pkgs/jdk15.nix { };
-
-  maven35 = pkgs.callPackage ./pkgs/maven35.nix { };
+  dwm-status = pkgs.callPackage ./pkgs/dwm-status { };
 
   nerdfonts-ubuntu-mono = pkgs.callPackage ./pkgs/nerdfonts-ubuntu-mono.nix { };
 
   pass = pkgs.callPackage ./pkgs/pass.nix { };
-
-  php55 = pkgs.callPackage ./pkgs/php55.nix { };
-
-  php72 = pkgs.callPackage ./pkgs/php72.nix { };
 
   teamspeak-update-notifier = pkgs.callPackage ./pkgs/teamspeak-update-notifier.nix { };
 }
