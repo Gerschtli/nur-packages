@@ -36,4 +36,4 @@ jobs:
           signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
 
       - name: Build packages and push to cachix
-        run: nix-shell -p nix-build-uncached --run "nix-build-uncached ci.nix -A buildOutputs --keep-going --show-trace"
+        run: nix-shell -p nix-build-uncached --run "nix-build-uncached -build-flags '--experimental-features nix-command' ci.nix -A buildOutputs --keep-going --show-trace"
