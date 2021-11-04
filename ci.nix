@@ -9,7 +9,7 @@
 # then your CI will be able to build and cache only those packages for
 # which this is possible.
 
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 with builtins;
 
@@ -29,10 +29,10 @@ let
     let
       f = p:
         if shouldRecurseForDerivations p then flattenPkgs p
-        else if isDerivation p then [p]
-        else [];
+        else if isDerivation p then [ p ]
+        else [ ];
     in
-      concatMap f (attrValues s);
+    concatMap f (attrValues s);
 
   outputsOf = p: map (o: p.${o}) p.outputs;
 
