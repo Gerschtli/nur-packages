@@ -15,6 +15,8 @@
 
   dwm-status = pkgs.callPackage ./pkgs/dwm-status { };
 
+  jdk15 = pkgs.callPackage ./pkgs/jdk15.nix { };
+
   nerdfonts-ubuntu-mono = pkgs.callPackage ./pkgs/nerdfonts-ubuntu-mono.nix { };
 
   pass = pkgs.callPackage ./pkgs/pass.nix { };
