@@ -1,3 +1,7 @@
+# !DEPRECATED! See [nix-config](https://github.com/Gerschtli/nix-config)
+
+I am transitioning to a flakes-only setup within a mono-repo containing all configs.
+
 # nur-packages
 
 **My personal [NUR](https://github.com/nix-community/NUR) repository**
