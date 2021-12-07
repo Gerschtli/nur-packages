@@ -1,8 +1,6 @@
 name: Build packages and push to binary cache
 on:
   push:
-  schedule:
-    - cron: 0 */6 * * *
 
 jobs:
   build:
